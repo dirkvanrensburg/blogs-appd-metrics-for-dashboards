@@ -1,0 +1,22 @@
+<monitor>
+    <name>PerPeriodMetrics</name>
+    <type>managed</type>
+    <description>Get calls per 10,60 and 960 minutes using REST API</description>
+    <monitor-configuration>
+    </monitor-configuration>
+    <monitor-run-task>
+        <execution-style>periodic</execution-style>
+        <name>Run</name>
+        <type>executable</type>
+        <task-arguments>
+		<argument name="user" is-required="true" default-value="admin"/>
+		<argument name="password" is-required="true" default-value="admin"/>
+		<argument name="account" is-required="true" default-value="customer1"/>
+        	<argument name="clientlist" is-required="true" default-value="clientlist.txt"/>
+	</task-arguments>
+        <executable-task>
+            <type>file</type>
+            <file os-type="linux">getmetrics.sh</file>
+        </executable-task>
+    </monitor-run-task>
+</monitor>
